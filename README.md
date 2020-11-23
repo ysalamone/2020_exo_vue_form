@@ -9,5 +9,5 @@
 2. ajouter un bouton "+" pour ajouter une personne
 3. le résultat doit s'afficher dynamiquement sous le formulaire, sans avoir besoin de valider le formulaire.
 	- via `{{ JSON.stringify(ma_var_json) }}`
-	- via un code html et une boucle for dans un <table>
+	- via un code html et une boucle for dans un `<table></table>`
 4. Bonus : ajouter un colonne 'trash', pour supprimer la ligne

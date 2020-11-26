@@ -64,10 +64,8 @@
                 this.inscrits = JSON.parse(localStorage.getItem('inscrits'));
             }
         },
-        watch: {
-            inscrits(nxvInscrits) {
-                localStorage.setItem('inscrits', JSON.stringify(nxvInscrits));
-            }
+        updated() {
+            localStorage.setItem('inscrits', JSON.stringify(this.inscrits));
         }
     });
 </script>

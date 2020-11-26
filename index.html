@@ -16,10 +16,12 @@
 
     <h1>Inscription</h1>
     <p v-for="(inscrit, i) in inscrits" :key="i">
-        <input v-model="inscrit.nom" type="text" id="nom" placeholder="Nom"/>
-        <input v-model="inscrit.prenom" type="text" id="prenom" placeholder="Prénom"/>
+        <input v-model="inscrit.nom" type="text" placeholder="Nom"/>
+        <input v-model="inscrit.prenom" type="text" placeholder="Prénom"/>
     </p>
     <button @click="ajouterLigne">Ajouter une ligne</button>
+
+    <p>{{ inscrits }}</p>
 
     <h1>Liste des inscrits</h1>
     <table>

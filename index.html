@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Exo formulaire Vue.js</title>
+    <style>
+        table { border-collapse: collapse; }
+        td { min-width: 170px; }
+        td:last-child { min-width: initial; }
+        .rouge { background-color: #f00; }
+    </style>
 </head>
 <body>
 
 <div id="app">
+
+    <h1>Inscription</h1>
+    <p v-for="(inscrit, i) in inscrits" :key="i">
+        <input v-model="inscrit.nom" type="text" id="nom" placeholder="Nom"/>
+        <input v-model="inscrit.prenom" type="text" id="prenom" placeholder="Prénom"/>
+    </p>
+    <button @click="ajouterLigne">Ajouter une ligne</button>
+
+    <h1>Liste des inscrits</h1>
+    <table>
+        <tr v-for="(inscrit, i) in inscrits" :key="i"
+            :class="inscrit.checked ? 'rouge' : ''">
+            <td>{{ inscrit.nom }}</td>
+            <td>{{ inscrit.prenom }}</td>
+            <td>
+                <button @click="supprimerLigne(i)">❌</button>
+                <input type="checkbox" v-model="inscrit.checked"/>
+            </td>
+        </tr>
+    </table>
 
 </div>
 
@@ -17,6 +43,17 @@
     var app = new Vue({
         el: '#app',
         data: {
+            inscrits: [{nom: '', prenom: '', checked: false}],
+        },
+        methods: {
+            ajouterLigne() {
+                this.inscrits.push({nom: '', prenom: '', checked: false});
+            },
+            supprimerLigne(i) {
+                this.inscrits.splice(i, 1);
+                if(this.inscrits.length === 0)
+                    this.ajouterLigne();
+            }
         }
     });
 </script>

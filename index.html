@@ -42,8 +42,10 @@
 <script type="text/javascript">
     var app = new Vue({
         el: '#app',
-        data: {
-            inscrits: [{nom: '', prenom: '', checked: false}],
+        data: function() {
+            return {
+                inscrits: [{nom: '', prenom: '', checked: false}],
+            }
         },
         methods: {
             ajouterLigne() {

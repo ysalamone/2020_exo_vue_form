@@ -58,6 +58,16 @@
                 if(this.inscrits.length === 0)
                     this.ajouterLigne();
             }
+        },
+        mounted() {
+            if (localStorage.inscrits) {
+                this.inscrits = JSON.parse(localStorage.getItem('inscrits'));
+            }
+        },
+        watch: {
+            inscrits(nxvInscrits) {
+                localStorage.setItem('inscrits', JSON.stringify(nxvInscrits));
+            }
         }
     });
 </script>
